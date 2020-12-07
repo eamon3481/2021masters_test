@@ -1,8 +1,5 @@
 import sys 
-sys.stdin=open("test1\input.txt","rt")
-word, b, direction = input().split()
-num = int(b)
-direction.upper()
+#sys.stdin=open("test1\input.txt","rt")
 
 def swich(word,number):
     tem=[0]*(len(word)) 
@@ -14,17 +11,28 @@ def swich(word,number):
         elif i+number >= len(word):
             tem[i+number - len(word)]=word[i]
     Newword = ""
-    for t in tem:
+    for t in tem: 
         Newword = Newword + t
     return Newword
 
-if -100<= num <= 100:
-    if direction == "R":
-        print(swich(word,num))    
-    elif direction == "L":
-        print(swich(word,num*(-1)))    
+def main(num,word,direction):
+    if -100<= num <= 100:
+        if direction == "R":
+            print(swich(word,num))    
+        elif direction == "L":
+            print(swich(word,num*(-1)))    
+        else:
+            print("direction should be L or R")
     else:
-        print("direction should be L or R")
-else:
-    print("number is -100 ~ +100")
+        print("number is -100 ~ +100")
 
+while True:
+    try:
+        word, b, direction = input().split()
+        num = int(b)
+        c = direction.upper()
+        main(num,word,c)
+        print("")
+    except:
+        print("error")
+        break
