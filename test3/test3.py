@@ -29,3 +29,29 @@ def printcube():
 
 printcube()
 
+def ClockWise_U():
+    tem = cube[1][0]
+    for i in range(3):
+        cube[1+i][0] = cube[2+i][0]
+    cube[4][0]= tem
+
+def ClockWise_D():
+    tem = cube[1][2]
+    for i in range(3):
+        cube[1+i][2] = cube[2+i][2]
+    cube[4][2]= tem
+
+def counterClockWise_U():
+    tem = cube[4][0]
+    for i in range(3):
+        cube[4-i][0] = cube[3-i][0]
+    cube[1][0]= tem
+
+def counterClockWise_D():
+    tem = cube[4][2]
+    for i in range(3):
+        cube[4-i][2] = cube[3-i][2]
+    cube[1][2]= tem
+
+counterClockWise_U()
+printcube()
