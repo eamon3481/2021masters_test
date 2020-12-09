@@ -1,36 +1,31 @@
 
-U= [["B","B","B"],["B","B","B"],["B","B","B"]]
-F= [["O","O","O"],["O","O","O"],["O","O","O"]]
-R= [["G","G","G"],["G","G","G"],["G","G","G"]]
-L= [["W","W","W"],["W","W","W"],["W","W","W"]]
-B= [["Y","Y","Y"],["Y","Y","Y"],["Y","Y","Y"]] 
-D= [["R","R","R"],["R","R","R"],["R","R","R"]]
+cube= [[["B","B","B"],["B","B","B"],["B","B","B"]] , [["O","O","O"],["O","O","O"],["O","O","O"]] 
+,[["G","G","G"],["G","G","G"],["G","G","G"]],[["W","W","W"],["W","W","W"],["W","W","W"]] 
+,[["Y","Y","Y"],["Y","Y","Y"],["Y","Y","Y"]] ,[["R","R","R"],["R","R","R"],["R","R","R"]]]
 
 def printcube():
-    for x in U:
+    for x in cube[0]:
         for b in x:
             print(b, end=" ")
         print("")
     print("\n")
     for i in range(3):
-        for x in F[i]:
-            print(x,end=" ")
-        print(" ", end="")
-        for x in R[i]:
-            print(x,end=" ")
-        print(" ", end="")
-        for x in L[i]:
-            print(x,end=" ")
-        print(" ", end="")
-        for x in B[i]:
-            print(x,end=" ")
+        for j in range(1,5):
+            for x in cube[j][i]:
+                print(x,end=" ")
+            print(" ", end="")
         print(" ")
     print("\n")
-    for x in D:
+    for x in cube[5]:
         for b in x:
             print(b, end=" ")
         print("")
     print("\n")
 
 
+
+
+
+
 printcube()
+
