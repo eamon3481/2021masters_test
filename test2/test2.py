@@ -1,6 +1,4 @@
 import sys 
-##f=open("test2\input.txt","rt")
-##cube = [list(map(str,input().split())) for x in range(3)]
 cube = [["R","R","W"],["G","C","W"],["G","B","B"]]
 def printCube(a):
     for x in a:
@@ -56,8 +54,7 @@ def LowerR(c):
     for x in range(3):
         c[x][2] = tem[x]
         
-def main():
-    orders = input("cube>").split()
+def main(orders):
     for order in orders:
         if order == "U":
             print("\n", order)
@@ -93,4 +90,11 @@ def main():
             LowerR(cube)
             printCube(cube)
     
-main()
+
+while True:
+    orders = input("cube>").split()
+    if "Q" in orders:
+        print("bye~")
+        break
+    else:
+        main(orders)
