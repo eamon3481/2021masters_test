@@ -1,4 +1,3 @@
-from os import close
 import sys 
 ##f=open("test2\input.txt","rt")
 
@@ -14,14 +13,18 @@ printCube(cube)
 
 #order = input().split()
 
-def upperL(c):
-    tem = c[0]
+def Left(c):
+    tem = tuple(c)
     for x in range(1,3):
-        print(x)
-        c[0][x-1] = tem[x] 
-    c[0][2] = tem[0] 
-    print(c[0])
+        c[x-1] = tem[x] 
+    c[2] = tem[0] 
 
-
-upperL(cube)
+def Right(c):
+    tem = tuple(c) 
+    for x in range(0,2):
+        c[x+1] = tem[x] 
+    c[0] = tem[2] 
+ 
+    
+Right(cube[2])
 print(cube)
