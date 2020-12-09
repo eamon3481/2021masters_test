@@ -1,6 +1,5 @@
 import sys 
 ##f=open("test2\input.txt","rt")
-
 ##cube = [list(map(str,input().split())) for x in range(3)]
 cube = [["R","R","W"],["G","C","W"],["G","B","B"]]
 def printCube(a):
@@ -8,10 +7,9 @@ def printCube(a):
         for b in x:
             print(b, end=" ")
         print("")
+    print("")
 
 printCube(cube)
-
-#order = input().split()
 
 def Left(c):
     tem = tuple(c)
@@ -26,17 +24,73 @@ def Right(c):
     c[0] = tem[2] 
  
 
-def upper(c):
+def upperL(c):
     tem = []
     for x in c:
         tem.append(x[0])
-    print(tem) 
     Left(tem)
-    print(tem)
     for x in range(3):
         c[x][0] = tem[x]
-    print(c)
 
-printCube(cube)
-upper(cube)
-printCube(cube)
+def upperR(c):
+    tem = []
+    for x in c:
+        tem.append(x[2])
+    Left(tem)
+    for x in range(3):
+        c[x][2] = tem[x]
+
+def LowerL(c):
+    tem = []
+    for x in c:
+        tem.append(x[0])
+    Right(tem)
+    for x in range(3):
+        c[x][0] = tem[x]
+
+def LowerR(c):
+    tem = []
+    for x in c:
+        tem.append(x[2])
+    Right(tem)
+    for x in range(3):
+        c[x][2] = tem[x]
+        
+def main():
+    orders = input("cube>").split()
+    for order in orders:
+        if order == "U":
+            print("\n", order)
+            Left(cube[0])
+            printCube(cube)
+        elif order == "U'":
+            print("\n", order)
+            Right(cube[0])
+            printCube(cube)
+        elif order == "B'":
+            print("\n", order)
+            Left(cube[2])
+            printCube(cube)
+        elif order == "B":
+            print("\n", order)
+            Right(cube[2])
+            printCube(cube)
+        elif order == "L":
+            print("")
+            print("\n", order)
+            LowerL(cube)
+            printCube(cube)
+        elif order == "L'":
+            print("\n", order)
+            upperL(cube)
+            printCube(cube)
+        elif order == "R":
+            print("\n", order)
+            upperR(cube)
+            printCube(cube)
+        elif order == "R'":
+            print("\n", order)
+            LowerR(cube)
+            printCube(cube)
+    
+main()
