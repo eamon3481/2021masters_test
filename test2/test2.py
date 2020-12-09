@@ -25,6 +25,18 @@ def Right(c):
         c[x+1] = tem[x] 
     c[0] = tem[2] 
  
-    
-Right(cube[2])
-print(cube)
+
+def upper(c):
+    tem = []
+    for x in c:
+        tem.append(x[0])
+    print(tem) 
+    Left(tem)
+    print(tem)
+    for x in range(3):
+        c[x][0] = tem[x]
+    print(c)
+
+printCube(cube)
+upper(cube)
+printCube(cube)
