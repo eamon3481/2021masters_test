@@ -1,6 +1,6 @@
 
-cube= [[["B","B","B"],["B","B","B"],["B","B","B"]] , [["O","O","O"],["O","O","O"],["O","O","O"]] 
-,[["G","G","G"],["G","G","G"],["G","G","G"]],[["W","W","W"],["W","W","W"],["W","W","W"]] 
+cube= [[["B","B","B"],["B","B","B"],["B","B","B"]] , [["W","W","W"],["W","W","W"],["W","W","W"]],
+[["O","O","O"],["O","O","O"],["O","O","O"]] ,[["G","G","G"],["G","G","G"],["G","G","G"]]
 ,[["Y","Y","Y"],["Y","Y","Y"],["Y","Y","Y"]] ,[["R","R","R"],["R","R","R"],["R","R","R"]]]
 
 def printcube():
@@ -78,3 +78,41 @@ def counterClockWise_D():
     for i in range(3):
         cube[4-i][2] = cube[3-i][2]
     cube[1][2]= tem
+
+def CClockWise_L():
+    tem = ( cube[2][0][0], cube[2][1][0], cube[2][2][0])
+    for x in range(3):
+        cube[2][x][0] = cube[5][x][0]
+        cube[5][x][0] = cube[4][x][0]
+        cube[4][x][0] = cube[0][x][0]
+        cube[0][x][0] = tem[x]
+    CClockWise_surface(cube[1])
+
+def ClockWise_R():
+    tem = ( cube[2][0][2], cube[2][1][2], cube[2][2][2])
+    for x in range(3):
+        cube[2][x][2] = cube[5][x][2]
+        cube[5][x][2] = cube[4][x][2]
+        cube[4][x][2] = cube[0][x][2]
+        cube[0][x][2] = tem[x]
+    ClockWise_surface(cube[3])
+
+def ClockWise_L():
+    tem = ( cube[2][0][0], cube[2][1][0], cube[2][2][0])
+    for x in range(3):
+        cube[2][x][0] = cube[0][x][0]
+        cube[0][x][0] = cube[4][x][0]
+        cube[4][x][0] = cube[5][x][0]
+        cube[5][x][0] = tem[x]
+    ClockWise_surface(cube[1])
+
+def ClockWise_R():
+    tem = ( cube[2][0][2], cube[2][1][2], cube[2][2][2])
+    for x in range(3):
+        cube[2][x][2] = cube[0][x][2]
+        cube[0][x][2] = cube[4][x][2]
+        cube[4][x][2] = cube[5][x][2]
+        cube[5][x][2] = tem[x]
+    ClockWise_surface(cube[3])
+
+printcube()
