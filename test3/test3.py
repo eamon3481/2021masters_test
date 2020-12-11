@@ -1,4 +1,6 @@
 import time
+import datetime
+
 ture_cube= ([["B","B","B"],["B","B","B"],["B","B","B"]] , [["W","W","W"],["W","W","W"],["W","W","W"]],
 [["O","O","O"],["O","O","O"],["O","O","O"]] ,[["G","G","G"],["G","G","G"],["G","G","G"]]
 ,[["Y","Y","Y"],["Y","Y","Y"],["Y","Y","Y"]] ,[["R","R","R"],["R","R","R"],["R","R","R"]])
@@ -242,7 +244,10 @@ def orderslist(a):
     return orderslist
 
 def printtime(st):
-    print(time.time()-st)
+    sec = time.time()-st
+    times = str(datetime.timedelta(seconds=sec)).split(".")
+    times = times[0]
+    print(times)
 
 start = time.time()
 while True:
