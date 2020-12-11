@@ -1,5 +1,6 @@
 import time
 import datetime
+import random
 
 ture_cube= [[["B","B","B"],["B","B","B"],["B","B","B"]] , [["W","W","W"],["W","W","W"],["W","W","W"]],
 [["O","O","O"],["O","O","O"],["O","O","O"]] ,[["G","G","G"],["G","G","G"],["G","G","G"]]
@@ -58,8 +59,6 @@ def CClockWise_surface(c):
     c[0][2] = tem[0]
 
 
-
-printcube()
 
 def ClockWise_U():
     ClockWise_surface(cube[0])
@@ -161,70 +160,31 @@ def CClockwise_B():
         cube[3][x][2] = tem[x]
     CClockWise_surface(cube[4])
 
-cnt = 0
-
 def main(order):
-    global cnt
     if order == "U":
-        cnt = cnt+1
-        print("\n", order)
         ClockWise_U()
-        printcube()
     elif order == "U'":
-        cnt = cnt+1
-        print("\n", order)
-        counterClockWise_U()
-        printcube()  
+        counterClockWise_U()  
     elif order == "D":
-        cnt = cnt+1
-        print("\n", order)
         ClockWise_D()
-        printcube()
     elif order == "D'":
-        cnt = cnt+1
-        print("\n", order)
         counterClockWise_D()
-        printcube()
     elif order == "L":
-        cnt = cnt+1
-        print("\n", order)
         ClockWise_L()
-        printcube()
     elif order == "L'":
-        cnt = cnt+1
-        print("\n", order)
         CClockWise_L()
-        printcube()
     elif order == "R":
-        cnt = cnt+1
-        print("\n", order)
         ClockWise_R()
-        printcube()
     elif order == "R'":
-        cnt = cnt+1
-        print("\n", order)
         CClockWise_R()
-        printcube()
     elif order == "F":
-        cnt = cnt+1
-        print("\n", order)
         Clockwise_F()
-        printcube()
     elif order == "F'":
-        cnt = cnt+1
-        print("\n", order)
         CClockwise_F()
-        printcube()
     elif order == "B":
-        cnt = cnt+1
-        print("\n", order)
         Clockwise_B()
-        printcube()
     elif order == "B'":
-        cnt = cnt+1
-        print("\n", order)
         CClockwise_B()
-        printcube()
 
 def orderslist(a):
     orderslist = []
@@ -242,6 +202,16 @@ def orderslist(a):
         tem = x
     return orderslist
 
+def randomcube():
+    randomorder = ["F","F'","D","D'","L","L'","R","R'","B","B'","U","U'"]
+    num = 50
+    for i in range(num):
+        main(random.choice(randomorder))
+
+randomcube()        
+printcube()
+
+
 def printtime(st):
     sec = time.time()-st
     times = str(datetime.timedelta(seconds=sec)).split(".")
@@ -249,6 +219,7 @@ def printtime(st):
     print("경과 시간: ", times)
 
 start = time.time()
+cnt = 0
 while True:
     orders = input("cube>")
     orders = orderslist(orders)
@@ -260,13 +231,15 @@ while True:
     else:
         for order in orders:
             main(order)
+            print("\n", order)
+            printcube()
+            cnt = cnt+1
             if ture_cube == cube:
                 print("조작개수:", cnt)
                 printtime(start)
                 print("맞췄습니다 축하드려요. 뚜뚜뚜.")
                 break
         
-
 
 
 
