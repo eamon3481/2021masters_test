@@ -1,9 +1,9 @@
 import time
 import datetime
 
-ture_cube= ([["B","B","B"],["B","B","B"],["B","B","B"]] , [["W","W","W"],["W","W","W"],["W","W","W"]],
+ture_cube= [[["B","B","B"],["B","B","B"],["B","B","B"]] , [["W","W","W"],["W","W","W"],["W","W","W"]],
 [["O","O","O"],["O","O","O"],["O","O","O"]] ,[["G","G","G"],["G","G","G"],["G","G","G"]]
-,[["Y","Y","Y"],["Y","Y","Y"],["Y","Y","Y"]] ,[["R","R","R"],["R","R","R"],["R","R","R"]])
+,[["Y","Y","Y"],["Y","Y","Y"],["Y","Y","Y"]] ,[["R","R","R"],["R","R","R"],["R","R","R"]]]
 
 
 cube= [[["B","B","B"],["B","B","B"],["B","B","B"]] , [["W","W","W"],["W","W","W"],["W","W","W"]],
@@ -163,69 +163,68 @@ def CClockwise_B():
 
 cnt = 0
 
-def main(orders):
+def main(order):
     global cnt
-    for order in orders:
-        if order == "U":
-            cnt = cnt+1
-            print("\n", order)
-            ClockWise_U()
-            printcube()
-        elif order == "U'":
-            cnt = cnt+1
-            print("\n", order)
-            counterClockWise_U()
-            printcube()  
-        elif order == "D":
-            cnt = cnt+1
-            print("\n", order)
-            ClockWise_D()
-            printcube()
-        elif order == "D'":
-            cnt = cnt+1
-            print("\n", order)
-            counterClockWise_D()
-            printcube()
-        elif order == "L":
-            cnt = cnt+1
-            print("\n", order)
-            ClockWise_L()
-            printcube()
-        elif order == "L'":
-            cnt = cnt+1
-            print("\n", order)
-            CClockWise_L()
-            printcube()
-        elif order == "R":
-            cnt = cnt+1
-            print("\n", order)
-            ClockWise_R()
-            printcube()
-        elif order == "R'":
-            cnt = cnt+1
-            print("\n", order)
-            CClockWise_R()
-            printcube()
-        elif order == "F":
-            cnt = cnt+1
-            print("\n", order)
-            Clockwise_F()
-            printcube()
-        elif order == "F'":
-            cnt = cnt+1
-            print("\n", order)
-            CClockwise_F()
-            printcube()
-        elif order == "B":
-            cnt = cnt+1
-            print("\n", order)
-            Clockwise_B()
-            printcube()
-        elif order == "B'":
-            cnt = cnt+1
-            print("\n", order)
-            CClockwise_B()
-            printcube()
+    if order == "U":
+        cnt = cnt+1
+        print("\n", order)
+        ClockWise_U()
+        printcube()
+    elif order == "U'":
+        cnt = cnt+1
+        print("\n", order)
+        counterClockWise_U()
+        printcube()  
+    elif order == "D":
+        cnt = cnt+1
+        print("\n", order)
+        ClockWise_D()
+        printcube()
+    elif order == "D'":
+        cnt = cnt+1
+        print("\n", order)
+        counterClockWise_D()
+        printcube()
+    elif order == "L":
+        cnt = cnt+1
+        print("\n", order)
+        ClockWise_L()
+        printcube()
+    elif order == "L'":
+        cnt = cnt+1
+        print("\n", order)
+        CClockWise_L()
+        printcube()
+    elif order == "R":
+        cnt = cnt+1
+        print("\n", order)
+        ClockWise_R()
+        printcube()
+    elif order == "R'":
+        cnt = cnt+1
+        print("\n", order)
+        CClockWise_R()
+        printcube()
+    elif order == "F":
+        cnt = cnt+1
+        print("\n", order)
+        Clockwise_F()
+        printcube()
+    elif order == "F'":
+        cnt = cnt+1
+        print("\n", order)
+        CClockwise_F()
+        printcube()
+    elif order == "B":
+        cnt = cnt+1
+        print("\n", order)
+        Clockwise_B()
+        printcube()
+    elif order == "B'":
+        cnt = cnt+1
+        print("\n", order)
+        CClockwise_B()
+        printcube()
 
 def orderslist(a):
     orderslist = []
@@ -247,7 +246,7 @@ def printtime(st):
     sec = time.time()-st
     times = str(datetime.timedelta(seconds=sec)).split(".")
     times = times[0]
-    print(times)
+    print("경과 시간: ", times)
 
 start = time.time()
 while True:
@@ -256,11 +255,16 @@ while True:
     if "Q" in orders:
         print("조작개수:", cnt)
         printtime(start)
-        print("bye~")
-        
+        print("이용해 주셔서 감사합니다. 뚜뚜뚜.")
         break
     else:
-        main(orders)
+        for order in orders:
+            main(order)
+            if ture_cube == cube:
+                print("조작개수:", cnt)
+                printtime(start)
+                print("맞췄습니다 축하드려요. 뚜뚜뚜.")
+                break
         
 
 
