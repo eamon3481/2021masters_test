@@ -5,6 +5,7 @@ cube= [[["B","B","B"],["B","B","B"],["B","B","B"]] , [["W","W","W"],["W","W","W"
 
 def printcube():
     for x in cube[0]:
+        print(" "*10, end=" ")
         for b in x:
             print(b, end=" ")
         print("")
@@ -19,6 +20,7 @@ def printcube():
 
 
     for x in cube[5]:
+        print(" "*10, end=" ")
         for b in x:
             print(b, end=" ")
         print("")
@@ -106,13 +108,13 @@ def ClockWise_L():
         cube[5][x][0] = tem[x]
     ClockWise_surface(cube[1])
 
-def ClockWise_R():
+def CClockWise_R():
     tem = ( cube[2][0][2], cube[2][1][2], cube[2][2][2])
     for x in range(3):
         cube[2][x][2] = cube[0][x][2]
         cube[0][x][2] = cube[4][x][2]
         cube[4][x][2] = cube[5][x][2]
         cube[5][x][2] = tem[x]
-    ClockWise_surface(cube[3])
+    CClockWise_surface(cube[3])
 
 printcube()
