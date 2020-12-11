@@ -54,47 +54,46 @@ def LowerR(c):
     for x in range(3):
         c[x][2] = tem[x]
         
-def main(orders):
-    for order in orders:
-        if order == "U":
-            print("\n", order)
-            Left(cube[0])
-            printCube(cube)
-        elif order == "U'":
-            print("\n", order)
-            Right(cube[0])
-            printCube(cube)
-        elif order == "B'":
-            print("\n", order)
-            Left(cube[2])
-            printCube(cube)
-        elif order == "B":
-            print("\n", order)
-            Right(cube[2])
-            printCube(cube)
-        elif order == "L":
-            print("")
-            print("\n", order)
-            LowerL(cube)
-            printCube(cube)
-        elif order == "L'":
-            print("\n", order)
-            upperL(cube)
-            printCube(cube)
-        elif order == "R":
-            print("\n", order)
-            upperR(cube)
-            printCube(cube)
-        elif order == "R'":
-            print("\n", order)
-            LowerR(cube)
-            printCube(cube)
-    
+def main(order):
+    if order == "U":
+        Left(cube[0])
+    elif order == "U'":
+        Right(cube[0])
+    elif order == "B'":
+        Left(cube[2])
+    elif order == "B":
+        Right(cube[2])
+    elif order == "L":
+        LowerL(cube)
+    elif order == "L'":
+        upperL(cube)
+    elif order == "R":
+        upperR(cube)
+    elif order == "R'":
+        LowerR(cube)
+
+def orderslist(a):
+    orderslist = []
+    tem = ""
+    for x in a:
+        if x == "'":
+            orderslist.pop()
+            orderslist.append(tem+x)
+        else:
+            orderslist.append(x)
+        tem = x
+    return orderslist
+
 
 while True:
-    orders = input("cube>").split()
+    orders = input("cube>")
+    orders = orderslist(orders)
+    
     if "Q" in orders:
         print("bye~")
         break
     else:
-        main(orders)
+        for order in orders:
+            main(order)
+            print("\n", order)
+            printCube(cube)
