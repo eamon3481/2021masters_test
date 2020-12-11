@@ -1,7 +1,13 @@
+import time
+ture_cube= ([["B","B","B"],["B","B","B"],["B","B","B"]] , [["W","W","W"],["W","W","W"],["W","W","W"]],
+[["O","O","O"],["O","O","O"],["O","O","O"]] ,[["G","G","G"],["G","G","G"],["G","G","G"]]
+,[["Y","Y","Y"],["Y","Y","Y"],["Y","Y","Y"]] ,[["R","R","R"],["R","R","R"],["R","R","R"]])
+
 
 cube= [[["B","B","B"],["B","B","B"],["B","B","B"]] , [["W","W","W"],["W","W","W"],["W","W","W"]],
 [["O","O","O"],["O","O","O"],["O","O","O"]] ,[["G","G","G"],["G","G","G"],["G","G","G"]]
 ,[["Y","Y","Y"],["Y","Y","Y"],["Y","Y","Y"]] ,[["R","R","R"],["R","R","R"],["R","R","R"]]]
+
 
 def printcube():
     for x in cube[0]:
@@ -153,53 +159,68 @@ def CClockwise_B():
         cube[3][x][2] = tem[x]
     CClockWise_surface(cube[4])
 
+cnt = 0
+
 def main(orders):
+    global cnt
     for order in orders:
         if order == "U":
+            cnt = cnt+1
             print("\n", order)
             ClockWise_U()
             printcube()
         elif order == "U'":
+            cnt = cnt+1
             print("\n", order)
             counterClockWise_U()
             printcube()  
         elif order == "D":
+            cnt = cnt+1
             print("\n", order)
             ClockWise_D()
             printcube()
         elif order == "D'":
+            cnt = cnt+1
             print("\n", order)
             counterClockWise_D()
             printcube()
         elif order == "L":
+            cnt = cnt+1
             print("\n", order)
             ClockWise_L()
             printcube()
         elif order == "L'":
+            cnt = cnt+1
             print("\n", order)
             CClockWise_L()
             printcube()
         elif order == "R":
+            cnt = cnt+1
             print("\n", order)
             ClockWise_R()
             printcube()
         elif order == "R'":
+            cnt = cnt+1
             print("\n", order)
             CClockWise_R()
             printcube()
         elif order == "F":
+            cnt = cnt+1
             print("\n", order)
             Clockwise_F()
             printcube()
         elif order == "F'":
+            cnt = cnt+1
             print("\n", order)
             CClockwise_F()
             printcube()
         elif order == "B":
+            cnt = cnt+1
             print("\n", order)
             Clockwise_B()
             printcube()
         elif order == "B'":
+            cnt = cnt+1
             print("\n", order)
             CClockwise_B()
             printcube()
@@ -218,18 +239,23 @@ def orderslist(a):
         else:
             orderslist.append(x)
         tem = x
-    print(orderslist)
+    return orderslist
 
+def printtime(st):
+    print(time.time()-st)
 
-
+start = time.time()
 while True:
     orders = input("cube>")
-    orderslist(orders)
+    orders = orderslist(orders)
     if "Q" in orders:
-    #    print("bye~")
+        print("조작개수:", cnt)
+        printtime(start)
+        print("bye~")
+        
         break
-    #else:
-    #    main(orders)
+    else:
+        main(orders)
         
 
 
