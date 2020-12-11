@@ -204,6 +204,36 @@ def main(orders):
             CClockwise_B()
             printcube()
 
+def orderslist(a):
+    orderslist = []
+    tem = ""
+    for x in a:
+        if x == "'":
+            orderslist.pop()
+            orderslist.append(tem+x)
+        elif x == "2" or x == "3" or x == "4" or x == "5" or x == "6" or x == "7" or x=="8" or x=="9":
+            orderslist.pop()
+            for i in range(int(x)):
+                orderslist.append(tem)
+        else:
+            orderslist.append(x)
+        tem = x
+    print(orderslist)
 
+
+
+while True:
+    orders = input("cube>")
+    orderslist(orders)
+    if "Q" in orders:
+    #    print("bye~")
+        break
+    #else:
+    #    main(orders)
         
 
+
+
+
+    
+         
