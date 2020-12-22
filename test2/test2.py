@@ -9,6 +9,7 @@ def printCube(a):
 
 printCube(cube)
 
+"""
 def Left(c):
     tem = tuple(c)
     for x in range(1,3):
@@ -21,6 +22,17 @@ def Right(c):
         c[x+1] = tem[x] 
     c[0] = tem[2] 
  
+"""
+
+"""remove duplicate code"""
+def Left_Right(dection,c):
+    tem = tuple(c)
+    for x in range(1,3):
+        if dection == "L":
+            c[x-1] = tem[x]
+        elif dection == "R":
+            c[x+1] = tem[x]
+    c[2] = tem[0] 
 
 def upperL(c):
     tem = []
@@ -56,7 +68,7 @@ def LowerR(c):
         
 def main(order):
     if order == "U":
-        Left(cube[0])
+        Left_Right(order,cube[0])
     elif order == "U'":
         Right(cube[0])
     elif order == "B'":
