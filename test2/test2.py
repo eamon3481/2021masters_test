@@ -28,9 +28,9 @@ def Right(c):
 def Left_Right(dection,c):
     tem = tuple(c)
     for x in range(1,3):
-        if dection == "L":
+        if dection == "U" or dection == "B":
             c[x-1] = tem[x]
-        elif dection == "R":
+        elif dection == "B" or dection =="B'":
             c[x+1] = tem[x]
     c[2] = tem[0] 
 
@@ -66,15 +66,22 @@ def LowerR(c):
     for x in range(3):
         c[x][2] = tem[x]
         
-def main(order):
-    if order == "U":
+""" if order == "U":
         Left_Right(order,cube[0])
     elif order == "U'":
         Right(cube[0])
     elif order == "B'":
         Left(cube[2])
     elif order == "B":
-        Right(cube[2])
+        Right(cube[2]) """
+
+"""remove duplicate code"""
+
+def main(order):
+    if order == "U" or order == "U'":
+        Left_Right(order,cube[0])
+    elif order == "B'" or order == "B'":
+        Left_Right(order,cube[2])
     elif order == "L":
         LowerL(cube)
     elif order == "L'":
