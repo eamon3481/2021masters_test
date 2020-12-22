@@ -38,7 +38,7 @@ def upperL(c):
     tem = []
     for x in c:
         tem.append(x[0])
-    Left(tem)
+    UpperButtom("U",tem)
     for x in range(3):
         c[x][0] = tem[x]
 
@@ -46,7 +46,7 @@ def upperR(c):
     tem = []
     for x in c:
         tem.append(x[2])
-    Left(tem)
+    UpperButtom("U",tem)
     for x in range(3):
         c[x][2] = tem[x]
 
@@ -54,7 +54,7 @@ def LowerL(c):
     tem = []
     for x in c:
         tem.append(x[0])
-    Right(tem)
+    UpperButtom("U'",tem)
     for x in range(3):
         c[x][0] = tem[x]
 
@@ -62,7 +62,7 @@ def LowerR(c):
     tem = []
     for x in c:
         tem.append(x[2])
-    Right(tem)
+    UpperButtom("U'",tem)
     for x in range(3):
         c[x][2] = tem[x]
         
@@ -80,7 +80,7 @@ def LowerR(c):
 def main(order):
     if order == "U" or order == "U'":
         UpperButtom(order,cube[0])
-    elif order == "B'" or order == "B'":
+    elif order == "B'" or order == "B":
         UpperButtom(order,cube[2])
     elif order == "L":
         LowerL(cube)
