@@ -25,7 +25,7 @@ def Right(c):
 """
 
 """remove duplicate code"""
-def Left_Right(dection,c):
+def UpperButtom(dection,c):
     tem = tuple(c)
     for x in range(1,3):
         if dection == "U" or dection == "B":
@@ -79,9 +79,9 @@ def LowerR(c):
 
 def main(order):
     if order == "U" or order == "U'":
-        Left_Right(order,cube[0])
+        UpperButtom(order,cube[0])
     elif order == "B'" or order == "B'":
-        Left_Right(order,cube[2])
+        UpperButtom(order,cube[2])
     elif order == "L":
         LowerL(cube)
     elif order == "L'":
